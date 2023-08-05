@@ -3,6 +3,7 @@ package com.example.MyCine.Model;
 
 import com.example.MyCine.Constant.Role;
 import com.example.MyCine.DTO.UserRegisterDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,8 @@ public class User implements UserDetails {
 
     public User(UserRegisterDTO dto) {
         this.email = dto.getEmail();
+        this.password = dto.getPassword();
+        this.fullName = dto.getFullName();
         this.isLocked = false;
         this.userRoles = Role.ROLE_USER;
     }
@@ -36,9 +39,30 @@ public class User implements UserDetails {
         this.fullName = fullName;
     }
 
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -66,18 +90,6 @@ public class User implements UserDetails {
         return false;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -88,6 +100,22 @@ public class User implements UserDetails {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public boolean isLocked() {
+        return isLocked;
+    }
+
+    public void setLocked(boolean locked) {
+        isLocked = locked;
+    }
+
+    public Role getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(Role userRoles) {
+        this.userRoles = userRoles;
     }
 }
 
