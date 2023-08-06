@@ -13,7 +13,8 @@ public class CorsConfig implements WebMvcConfigurer {
 
         registry.addMapping("/**")
                 .allowedOrigins(
-                        "http://localhost:4200")
+                        "http://localhost:4200",
+                        "https://mycine-be-production.up.railway.app")
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .exposedHeaders(
