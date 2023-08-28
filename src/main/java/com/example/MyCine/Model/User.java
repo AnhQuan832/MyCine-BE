@@ -4,9 +4,7 @@ package com.example.MyCine.Model;
 import com.example.MyCine.Constant.Role;
 import com.example.MyCine.DTO.UserRegisterDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +14,8 @@ import java.util.Collection;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Getter
+@Setter
 public class User implements UserDetails {
     @Id
     private String userID;

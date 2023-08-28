@@ -34,7 +34,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v1/auth/**", "/api/v1/film/**").permitAll()
+                .requestMatchers("/api/v1/auth/**", "/api/v1/film/**","/ws/**").permitAll()
                 .requestMatchers("/swagger-ui/", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .anyRequest().permitAll()
                 .and()
